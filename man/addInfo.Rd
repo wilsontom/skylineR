@@ -3,22 +3,22 @@
 \docType{methods}
 \name{addInfo}
 \alias{addInfo}
-\alias{addInfo,Skyline-method}
+\alias{addInfo,skyline-method}
 \title{addInfo}
 \usage{
 addInfo(object, runinfo)
 
-\S4method{addInfo}{Skyline}(object, runinfo)
+\S4method{addInfo}{skyline}(object, runinfo)
 }
 \arguments{
-\item{object}{a \code{Skyline} object}
+\item{object}{a \code{skyline} object}
 
 \item{a}{runinfo \code{data.frame}}
 }
 \description{
 addInfo
 
-Add the runinfo \code{data.frame} to a \code{Skyline} object. The method writes to
+Add the runinfo \code{data.frame} to a \code{skyline} object. The method writes to
 the object in the global environment
 }
 \author{

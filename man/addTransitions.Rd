@@ -3,22 +3,22 @@
 \docType{methods}
 \name{addTransitions}
 \alias{addTransitions}
-\alias{addTransitions,Skyline-method}
+\alias{addTransitions,skyline-method}
 \title{addTransitions}
 \usage{
 addTransitions(object, transitionList)
 
-\S4method{addTransitions}{Skyline}(object, transitionList)
+\S4method{addTransitions}{skyline}(object, transitionList)
 }
 \arguments{
-\item{object}{a \code{Skyline} object}
+\item{object}{a \code{skyline} object}
 
 \item{a}{\code{data.frame} of transition information}
 }
 \description{
 addTransitions
 
-Add a transition \code{data.frame} to a \code{Skyline} object. The method writes to
+Add a transition \code{data.frame} to a \code{skyline} object. The method writes to
 the object in the global environment
 }
 \author{

@@ -3,22 +3,22 @@
 \docType{methods}
 \name{addFiles}
 \alias{addFiles}
-\alias{addFiles,Skyline-method}
+\alias{addFiles,skyline-method}
 \title{addFiles}
 \usage{
 addFiles(object, filepath)
 
-\S4method{addFiles}{Skyline}(object, filepath)
+\S4method{addFiles}{skyline}(object, filepath)
 }
 \arguments{
-\item{object}{a \code{Skyline} object}
+\item{object}{a \code{skyline} object}
 
 \item{filepath}{a valid filepath to directory of \code{.raw} files}
 }
 \description{
 addFiles
 
-Add the file paths of all raw data to be analysed to a \code{Skyline} object. The method writes to
+Add the file paths of all raw data to be analysed to a \code{skyline} object. The method writes to
 the object in the global environment
 }
 \author{
