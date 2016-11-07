@@ -1,7 +1,7 @@
 #' addFiles
 #' @rdname addFiles
 #'
-#' @param object a \code{Skyline} object
+#' @param object a \code{skyline} object
 #' @param filepath a valid filepath to directory of \code{.raw} files
 #' @return NULL
 #'
@@ -17,7 +17,7 @@ setGeneric(name = "addFiles",
 #' addInfo
 #' @rdname addInfo
 #'
-#' @param object a \code{Skyline} object
+#' @param object a \code{skyline} object
 #' @param a runinfo \code{data.frame}
 #' @return NULL
 #'
@@ -35,7 +35,7 @@ setGeneric(name = "addInfo",
 #' addTransitions
 #' @rdname addTransitions
 #'
-#' @param object a \code{Skyline} object
+#' @param object a \code{skyline} object
 #' @param a \code{data.frame} of transition information
 #' @return NULL
 #'

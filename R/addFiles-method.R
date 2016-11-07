@@ -1,14 +1,14 @@
 #' addFiles
 #' @rdname addFiles
 #'
-#' @description Add the file paths of all raw data to be analysed to a \code{Skyline} object. The method writes to
+#' @description Add the file paths of all raw data to be analysed to a \code{skyline} object. The method writes to
 #' the object in the global environment
 #'
 #' @include allGenerics.R
 #' @include allClasses.R
 
 
-setMethod("addFiles", signature = "Skyline",
+setMethod("addFiles", signature = "skyline",
           function(object,filepath){
 
             objectName <- as.list(match.call())$object

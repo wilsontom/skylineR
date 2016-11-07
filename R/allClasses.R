@@ -14,7 +14,7 @@
 #' @slot quant a \code{data.frame} of results
 
 
-setClass(Class = "Skyline", representation = representation(
+setClass(Class = "skyline", representation = representation(
   env = "environment",
   SkylinePath = "character",
   SkylineTransition = "character",

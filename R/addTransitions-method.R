@@ -1,13 +1,13 @@
 #' addTransitions
 #' @rdname addTransitions
 #'
-#' @description Add a transition \code{data.frame} to a \code{Skyline} object. The method writes to
+#' @description Add a transition \code{data.frame} to a \code{skyline} object. The method writes to
 #' the object in the global environment
 #'
 #' @include allGenerics.R
 #' @include allClasses.R
 
-setMethod(f = "addTransitions", signature = "Skyline",
+setMethod(f = "addTransitions", signature = "skyline",
           function(object, transitionList){
 
             objectName <- as.list(match.call())$object
