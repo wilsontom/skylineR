@@ -30,10 +30,7 @@ setMethod(f = "addTransitions", signature = "skyline",
             if(any(transCh == FALSE)){
               message("WARNING: Product m/z value (Q3mz) found which is greater than precursor m/z value (Q1mz)")
             }
-
-
             transitions2 <- data.frame(MoleculeGroup = transitions[,"PrecursorName"], transitions)
-
             object@transitions <- transitions2
             assign(eval(paste(text = objectName)),object, envir = .GlobalEnv)
           }

@@ -36,7 +36,6 @@ setMethod(f = "addInfo", signature = "skyline",
               }
 
             }
-
             object@runinfo <- info
             assign(eval(paste(text = objectName)),object, envir = .GlobalEnv)
           }

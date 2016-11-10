@@ -36,7 +36,8 @@ setGeneric(name = "addInfo",
 #' @rdname addTransitions
 #'
 #' @param object a \code{skyline} object
-#' @param a \code{data.frame} of transition information
+#' @param a \code{data.frame} of transition information. The \code{data.frame} must contain the following columns;
+#' PrecursorName, PrecursorRT, PrecursorMz, ProductMz,PrecursorCharge and ProductCharge
 #' @return NULL
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}

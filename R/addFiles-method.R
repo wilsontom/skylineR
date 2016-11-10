@@ -12,10 +12,8 @@ setMethod("addFiles", signature = "skyline",
           function(object,filepath){
 
             objectName <- as.list(match.call())$object
-
             all_files <- list.files(filepath, pattern = c('.raw|.RAW'), full = "TRUE")
             object@filepaths <- all_files
-
             assign(eval(paste(text = objectName)),object, envir = .GlobalEnv)
 
             print(paste(length(object@filepaths), "files added to", objectName, sep = " "))
