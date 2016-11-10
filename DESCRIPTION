@@ -19,4 +19,4 @@ Collate:
     'addFiles-method.R'
     'addInfo-method.R'
     'addTransitions-method.R'
-RoxygenNote: 5.0.0
+RoxygenNote: 5.0.1
