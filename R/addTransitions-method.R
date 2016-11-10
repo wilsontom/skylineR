@@ -17,7 +17,7 @@ setMethod(f = "addTransitions", signature = "skyline",
 
             transitions <- read.csv(transitionList, head = TRUE, stringsAsFactors = FALSE)
 
-            nmRef <- c("name", "Rt","Q1mz", "Q3mz","Q1z", "Q3z")
+            nmRef <- c("PrecursorName", "PrecursorRT","PrecursorMz", "ProductMz","PrecursorCharge", "ProductCharge")
 
             nmCh <- names(transitions) == nmRef
 
@@ -25,11 +25,16 @@ setMethod(f = "addTransitions", signature = "skyline",
               stop("transition list is not named correctly, refer to ... for help", call. = FALSE)
             }
 
-            if(!transitions[,"Q3mz"] < transitions[,"Q1mz"]){
+            transCh <- transitions[,"ProductMz"] < transitions[,"PrecursorMz"]
+
+            if(any(transCh == FALSE)){
               message("WARNING: Product m/z value (Q3mz) found which is greater than precursor m/z value (Q1mz)")
             }
 
-            object@transitions <- transitions
+
+            transitions2 <- data.frame(MoleculeGroup = transitions[,"PrecursorName"], transitions)
+
+            object@transitions <- transitions2
             assign(eval(paste(text = objectName)),object, envir = .GlobalEnv)
           }
 )

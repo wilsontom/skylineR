@@ -6,9 +6,17 @@ Author: Tom Wilson <tpw2@aber.ac.uk>
 Maintainer: Tom Wilson <tpw2@aber.ac.uk>
 Description: More about what it does (maybe more than one line)
 License: GPL (>= 3.0)
-Depends: methods
-Imports: ggplot2
-Suggests: testthat
+Depends:
+    methods
+Suggests:
+    testthat
 LazyData: TRUE
 URL: http://github.com/wilsontom/skylineR
 BugReports: http://github.com/wilsontom/skylineR/issues
+Collate:
+    'allClasses.R'
+    'allGenerics.R'
+    'addFiles-method.R'
+    'addInfo-method.R'
+    'addTransitions-method.R'
+RoxygenNote: 5.0.0
