@@ -13,7 +13,8 @@ addTransitions(object, transitionList)
 \arguments{
 \item{object}{a \code{skyline} object}
 
-\item{a}{\code{data.frame} of transition information}
+\item{a}{\code{data.frame} of transition information. The \code{data.frame} must contain the following columns;
+PrecursorName, PrecursorRT, PrecursorMz, ProductMz,PrecursorCharge and ProductCharge}
 }
 \description{
 addTransitions

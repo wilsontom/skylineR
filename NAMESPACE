@@ -3,3 +3,5 @@
 export(addFiles)
 export(addInfo)
 export(addTransitions)
+export(calibrate)
+export(quantify)
