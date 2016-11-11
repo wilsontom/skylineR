@@ -19,4 +19,7 @@ Collate:
     'addFiles-method.R'
     'addInfo-method.R'
     'addTransitions-method.R'
-RoxygenNote: 5.0.1
+    'calibrate-method.R'
+    'internals.R'
+    'quantify-method.R'
+RoxygenNote: 5.0.0
