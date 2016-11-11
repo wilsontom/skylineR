@@ -49,3 +49,19 @@ setGeneric(name = "addTransitions",
            {standardGeneric("addTransitions")}
 
 )
+
+
+#' @export
+setGeneric(name = "calibrate",
+           def = function(object)
+           {standardGeneric("calibrate")}
+)
+
+
+
+#' @export
+
+setGeneric(name = "quantify",
+           def = function(object)
+           {standardGeneric("quantify")}
+)
