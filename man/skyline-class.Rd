@@ -26,8 +26,10 @@ An \code{S4} class for performing quantitative analysis of SRM-MS data using \co
 
 \item{\code{peakInfo}}{a list of peak picking results}
 
-\item{\code{calibrants}}{a list of calibrant data}
+\item{\code{calibrants}}{a list of raw peak areas for all calibration samples}
 
-\item{\code{quant}}{a \code{data.frame} of results}
+\item{\code{calibration}}{a \code{data.frame} of calibration results which will be used for quantification}
+
+\item{\code{quant}}{a \code{data.frame} of result}
 }}
 
