@@ -1,6 +1,5 @@
 #' addFiles
 #' @rdname addFiles
-#'
 #' @param object a \code{skyline} object
 #' @param filepath a valid filepath to directory of \code{.raw} files
 #' @return NULL
@@ -16,7 +15,6 @@ setGeneric(name = "addFiles",
 
 #' addInfo
 #' @rdname addInfo
-#'
 #' @param object a \code{skyline} object
 #' @param a runinfo \code{data.frame}
 #' @return NULL
@@ -34,7 +32,6 @@ setGeneric(name = "addInfo",
 
 #' addTransitions
 #' @rdname addTransitions
-#'
 #' @param object a \code{skyline} object
 #' @param a \code{data.frame} of transition information. The \code{data.frame} must contain the following columns;
 #' PrecursorName, PrecursorRT, PrecursorMz, ProductMz,PrecursorCharge and ProductCharge
@@ -51,14 +48,40 @@ setGeneric(name = "addTransitions",
 )
 
 
+#' extractCalibrants
+#' @rdname extractCalibrants
+#' @param a \code{skyline} object
+#' @return NULL
+#'
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
+
+setGeneric(name = "extractCalibrants",
+           def = function(object)
+           {standardGeneric("extractCalibrants")}
+
+)
+
+#' calibrate
+#' @rdname calibrate
+#' @param a \code{skyline} object
+#' @return NULL
+#'
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
+#' @export
+
 setGeneric(name = "calibrate",
            def = function(object)
            {standardGeneric("calibrate")}
 )
 
 
-
+#' quantify
+#' @rdname quantify
+#' @param a \code{skyline} object
+#' @return NULL
+#'
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
 setGeneric(name = "quantify",
