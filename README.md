@@ -5,7 +5,7 @@
 
 Setup and Useage
 ---
-- [Installation and Requirements] (https://github.com/wilsontom/skylineR/wiki)
+- [Installation and Requirements] (https://github.com/wilsontom/skylineR/wiki/Installation-&-Requirements)
 - [Small Molecule SRM-MS quantification workflow] (https://githun.com/wilsontom/skyline/GettingStarted)
 - [Importing raw data] (https://github.com/wilsontom/skylineR)
 - [Peak Picking and Integration] (https://github.com/wilsontom/skylineR)
