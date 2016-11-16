@@ -25,7 +25,7 @@ setClass(Class = "skyline", representation = representation(
   filepaths = "character",
   peakInfo = "list",
   calibrants = "list",
-  calibration = "data.frame"
+  calibration = "data.frame",
   validation = "data.frame",
   quant = "data.frame")
 )
