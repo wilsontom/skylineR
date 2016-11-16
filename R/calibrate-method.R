@@ -30,7 +30,7 @@ setMethod(f = "calibrate", signature = "skyline",
             }
 
             names(caDF) <- names(caPA3)
-
+            caDF$IS <- NULL
             calibration_optimise <- lapply(caDF, linear_opt)
 
             calib_df <- data.frame(matrix(nrow = length(calibration_optimise), ncol = 6))

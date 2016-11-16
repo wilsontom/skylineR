@@ -10,8 +10,10 @@
 #' @slot transitions a \code{data.frame} of transition information. The transitions must be identical to those in the \code{SkyTransitionFile.sky}
 #' @slot filepaths a character vector of \code{.raw} filepaths
 #' @slot peakInfo a list of peak picking results
-#' @slot calibrants a list of calibrant data
-#' @slot quant a \code{data.frame} of results
+#' @slot calibrants a list of raw peak areas for all calibration samples
+#' @slot calibration a \code{data.frame} of calibration results which will be used for quantification
+#' @slot quant a \code{data.frame} of result
+
 
 
 setClass(Class = "skyline", representation = representation(
@@ -22,7 +24,8 @@ setClass(Class = "skyline", representation = representation(
   transitions = "data.frame",
   filepaths = "character",
   peakInfo = "list",
-  calibrants = "data.frame",
+  calibrants = "list",
+  calibration = "data.frame"
   validation = "data.frame",
   quant = "data.frame")
 )
