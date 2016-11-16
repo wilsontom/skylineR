@@ -1,7 +1,8 @@
-
-
-
-
+#' calibrate
+#' @rdname calibrate
+#'
+#' @description Generate optimised calibration curves for each transition
+#'
 #' @include allGenerics.R
 #' @include allClasses.R
 
