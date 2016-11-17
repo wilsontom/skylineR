@@ -23,7 +23,8 @@ Collate:
     'addTransitions-method.R'
     'calibrate-method.R'
     'extractCalibrants-method.R'
+    'extractIS.R'
     'internals.R'
     'plotCalibrant-method.R'
     'quantify-method.R'
-RoxygenNote: 5.0.0
+RoxygenNote: 5.0.1

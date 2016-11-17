@@ -16,7 +16,7 @@ extractCalibrants(object)
 \description{
 extractCalibrants
 
-extact calibrant data from peak integration tables
+Extract all peak data for calibrants and store in \code{calibrants} slot
 }
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}

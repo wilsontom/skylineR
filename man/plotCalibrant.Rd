@@ -16,7 +16,7 @@ plotCalibrant(object, name, type)
 \description{
 plotCalibrant
 
-Generate optimised calibration curves for each transition
+Plot calibration curves
 }
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}

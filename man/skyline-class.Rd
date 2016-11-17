@@ -30,6 +30,8 @@ An \code{S4} class for performing quantitative analysis of SRM-MS data using \co
 
 \item{\code{calibration}}{a \code{data.frame} of calibration results which will be used for quantification}
 
+\item{\code{internalstd}}{a \code{data.frame} of peak information for the internal standard (IS) in each sample}
+
 \item{\code{quant}}{a \code{data.frame} of result}
 }}
 
