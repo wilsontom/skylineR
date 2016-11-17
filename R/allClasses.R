@@ -12,9 +12,8 @@
 #' @slot peakInfo a list of peak picking results
 #' @slot calibrants a list of raw peak areas for all calibration samples
 #' @slot calibration a \code{data.frame} of calibration results which will be used for quantification
+#' @slot internalstd a \code{data.frame} of peak information for the internal standard (IS) in each sample
 #' @slot quant a \code{data.frame} of result
-
-
 
 setClass(Class = "skyline", representation = representation(
   env = "environment",
@@ -27,5 +26,6 @@ setClass(Class = "skyline", representation = representation(
   calibrants = "list",
   calibration = "data.frame",
   validation = "data.frame",
+  internalstd = "data.frame",
   quant = "data.frame")
 )
