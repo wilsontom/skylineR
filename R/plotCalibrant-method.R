@@ -1,7 +1,7 @@
 #' plotCalibrant
 #' @rdname plotCalibrant
 #'
-#' @description Generate optimised calibration curves for each transition
+#' @description Plot calibration curves
 #'
 #' @include allGenerics.R
 #' @include allClasses.R
@@ -28,15 +28,15 @@ setMethod(f = "plotCalibrant", signature = "skyline",
 						as.character(as.expression(eq));
 						}
 
-						plot1 <- ggplot(caldf, aes_string(x = 'x', y = 'y')) + geom_point(size = 1.5) + theme_bw() +
+						plot1 <- ggplot(cali_plot, aes_string(x = 'x', y = 'y')) + geom_point(size = 1.5) + theme_bw() +
 													geom_smooth(se = FALSE,method = "lm", colour = "red", size = 0.7)
 
-            xcoord <- 0.25 * max(caldf[,"x"])
-            ycoord <- 0.75 * max(caldf[,"y"])
+            xcoord <- 0.25 * max(cali_plot[,"x"])
+            ycoord <- 0.75 * max(cali_plot[,"y"])
 
-            eqlabel <- lm_eqn(x = caldf[,"x"], y = caldf[,"y"])
+            eqlabel <- lmeqn(x = cali_plot[,"x"], y = cali_plot[,"y"])
 
-            plot2 <-  plot1 + geom_text(aes(x = xcoord, y = ycoord, label = eq), parse = TRUE)
+            plot2 <-  plot1 + geom_text(aes(x = xcoord, y = ycoord, label = eqlabel), parse = TRUE)
 
             if(type == "ratio"){
               plot3  <- plot2 + labs(x = expression(paste("Concentration (",mu,"g/ml)")), y = "Area (ratio to IS)")
