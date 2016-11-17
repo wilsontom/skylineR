@@ -1,0 +1,33 @@
+#' extractIS
+#' @rdname extractIS
+#'
+#' @description extract peak data (area, noise and Rt) for the internal standard (IS) from every sample.
+#' Once IS peak data has been added to the \code{internalstd} slot in a \code{skyline} object; it is removed
+#' from the peak tables in the \code{peakInfo} slot.
+#'
+#' @include allGenerics.R
+#' @include allClasses.R
+
+setMethod(f = "extractIS", signature = "skyline",
+          function(object){
+
+		objectName <- as.list(match.call())$object
+
+		ISidx <- which(object@peakInfo$area[,"id"] == "IS")
+
+		row_lables <- names(object@peakInfo$area[ISidx,-1])
+		ISarea <- as.numeric(t(object@peakInfo$area[ISidx,-1]))
+		ISrt <- as.numeric(t(object@peakInfo$Rt[ISidx,-1]))
+		ISnoise <- as.numeric(t(object@peakInfo$noise[ISidx,-1]))
+
+		ISdf <- data.frame(area = ISarea, noise = ISnoise, Rt = ISrt)
+		rownames(ISdf) <- row_lables
+		object@internalstd <- ISdf
+
+		object@peakInfo$area <- object@peakInfo$area[-ISidx,]
+		object@peakInfo$Rt <- object@peakInfo$Rt[-ISidx,]
+		object@peakInfo$noise <- object@peakInfo$noise[-ISidx,]
+
+		assign(eval(paste(text = objectName)),object, envir = .GlobalEnv)
+		}
+)
