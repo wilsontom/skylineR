@@ -1,7 +1,7 @@
 #' extractCalibrants
 #' @rdname extractCalibrants
 #'
-#' @description extact calibrant data from peak integration tables
+#' @description Extract all peak data for calibrants and store in \code{calibrants} slot
 #'
 #' @include allGenerics.R
 #' @include allClasses.R
@@ -27,7 +27,7 @@ setMethod(f = "extractCalibrants", signature = "skyline",
 						names(calibrant_df[[i]]) <- c("area", "conc")
 					}
 
-					IS_area <- calibrant_df$IS1[,"area"]
+					IS_area <- object@internalstd[calibrant_id,"area"]
 
 					for(i in seq_along(calibrant_df)){
 						calibrant_df[[i]] <- data.frame(calibrant_df[[i]],ratio = calibrant_df[[i]][,"area"] / IS_area)
