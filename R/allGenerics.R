@@ -101,3 +101,4 @@ setGeneric(name = "quantify",
 setGeneric(name = "plotCalibrant",
            def = function(object, name, type)
            {standardGeneric("plotCalibrant")}
+)
