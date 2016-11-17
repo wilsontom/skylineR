@@ -18,17 +18,7 @@ setMethod(f = "plotCalibrant", signature = "skyline",
 						cali_plot <- data.frame(x = cali_plot[,"conc"], y = cali_plot[,"area"])
 					}
 
-					lmeqn <- function(x,y)
-						{
-						m = lm(y ~ x);
-						eq <- substitute(italic(y) == a + b %.% italic(x)*","~~italic(r)^2~"="~r2,
-								 list(a = format(coef(m)[1], digits = 2),
-											b = format(coef(m)[2], digits = 2),
-										 r2 = format(summary(m)$r.squared, digits = 3)))
-						as.character(as.expression(eq));
-						}
-
-						plot1 <- ggplot(cali_plot, aes_string(x = 'x', y = 'y')) + geom_point(size = 1.5) + theme_bw() +
+					plot1 <- ggplot(cali_plot, aes_string(x = 'x', y = 'y')) + geom_point(size = 1.5) + theme_bw() +
 													geom_smooth(se = FALSE,method = "lm", colour = "red", size = 0.7)
 
             xcoord <- 0.25 * max(cali_plot[,"x"])
