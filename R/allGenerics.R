@@ -102,3 +102,17 @@ setGeneric(name = "plotCalibrant",
            def = function(object, name, type)
            {standardGeneric("plotCalibrant")}
 )
+
+
+#' extractIS
+#' @rdname extractIS
+#' @param a \code{skyline} object
+#' @return NULL
+#'
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
+#' @export
+
+setGeneric(name = "extractIS",
+           def = function(object)
+           {standardGeneric("extractIS")}
+)
