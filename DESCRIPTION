@@ -22,10 +22,11 @@ Collate:
     'addInfo-method.R'
     'addTransitions-method.R'
     'calibrate-method.R'
+    'curveOptimise.R'
     'extractCalibrants-method.R'
     'extractIS.R'
     'fitCurve.R'
-    'internals.R'
     'plotCalibrant-method.R'
+    'predictModel.R'
     'quantify-method.R'
 RoxygenNote: 5.0.0
