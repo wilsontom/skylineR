@@ -24,7 +24,8 @@ Collate:
     'calibrate-method.R'
     'extractCalibrants-method.R'
     'extractIS.R'
+    'fitCurve.R'
     'internals.R'
     'plotCalibrant-method.R'
     'quantify-method.R'
-RoxygenNote: 5.0.1
+RoxygenNote: 5.0.0

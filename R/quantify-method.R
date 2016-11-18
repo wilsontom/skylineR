@@ -19,6 +19,9 @@ setMethod(f = "quantify", signature = "skyline",
 
 				# convert to ratios here !
 				is_match <- match(names(dftmp)[2], rownames(object@internalstd))
+
+
+
 				dftmp[,2] <- dftmp[,2] / object@internalstd[is_match,"area"]
                 cidx <- match(dftmp[,"id"],object@calibration[,"id"])
                 quant[[i]] <- (dftmp[,2] - object@calibration[cidx,"c"]) / object@calibration[cidx,"m"]
