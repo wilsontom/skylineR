@@ -18,25 +18,19 @@ setMethod(f = "plotCalibrant", signature = "skyline",
 						cali_plot <- data.frame(x = cali_plot[,"conc"], y = cali_plot[,"area"])
 					}
 
-					plot1 <- ggplot(cali_plot, aes_string(x = 'x', y = 'y')) + geom_point(size = 1.5) + theme_bw() +
-													geom_smooth(se = FALSE,method = "lm", colour = "red", size = 0.7)
+					plot1 <- ggplot(cali_plot, aes_string(x = 'x', y = 'y')) + geom_point(size = 2) + theme_bw() +
+													geom_smooth(se = FALSE,method = "lm" , colour = "red", size = 0.5) +
+													geom_smooth(se = FALSE,method = "loess", colour = "blue", size = 0.5)
 
-            xcoord <- 0.25 * max(cali_plot[,"x"])
-            ycoord <- 0.75 * max(cali_plot[,"y"])
 
-            eqlabel <- lmeqn(x = cali_plot[,"x"], y = cali_plot[,"y"])
+          if(type == "ratio"){
+             plot2  <- plot1 + labs(x = expression(paste("Concentration (",mu,"g/ml)")), y = "Area (ratio to IS)")
+          }
+          if(type == "raw"){
+              plot2  <- plot1 + labs(x = expression(paste("Concentration (",mu,"g/ml)")), y = "Area")
+          }
 
-            plot2 <-  plot1 + geom_text(aes(x = xcoord, y = ycoord, label = eqlabel), parse = TRUE)
-
-            if(type == "ratio"){
-              plot3  <- plot2 + labs(x = expression(paste("Concentration (",mu,"g/ml)")), y = "Area (ratio to IS)")
-            }
-
-            if(type == "raw"){
-              plot3  <- plot2 + labs(x = expression(paste("Concentration (",mu,"g/ml)")), y = "Area")
-            }
-
-            print(plot3)
+            print(plot2)
 
             return(invisible(NULL))
           }
