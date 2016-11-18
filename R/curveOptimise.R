@@ -13,7 +13,7 @@ curveOptimise <- function(x)
 
   idx <- seq(from = 1, to = nrow(x), by = 1)
 
-  pmin <- round(0.7 * length(idx), digits = 0)
+  pmin <- round(0.65 * length(idx), digits = 0)
   pmax <- length(idx)
 
   prange <- c(pmin:pmax)
@@ -59,5 +59,9 @@ curveOptimise <- function(x)
                quant_range = paste(min(combn_dfs[[err_min_idx]]$x), max(combn_dfs[[err_min_idx]]$x), sep = " - ")
   )
 
-  return(opt_res)
+  opt_conc <- opt_cali[,"x"]
+  
+  opt_all <- list(res = opt_res, conc = opt_conc)
+  
+  return(opt_all)
 }
