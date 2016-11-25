@@ -14,12 +14,19 @@ setMethod(f = "extractIS", signature = "skyline",
 		objectName <- as.list(match.call())$object
 
 		ISidx <- which(object@peakInfo$area[,"id"] == "IS")
-
+	
 		row_lables <- names(object@peakInfo$area[ISidx,-1])
-		ISarea <- as.numeric(t(object@peakInfo$area[ISidx,-1]))
-		ISrt <- as.numeric(t(object@peakInfo$Rt[ISidx,-1]))
-		ISnoise <- as.numeric(t(object@peakInfo$noise[ISidx,-1]))
+		ISarea <- object@peakInfo$area[ISidx,-1]
+		ISrt <- object@peakInfo$Rt[ISidx,-1]
+		ISnoise <- object@peakInfo$noise[ISidx,-1]
 
+		if(length(ISidx) > 1){		
+			ISarea <- apply(ISarea,2,sum)
+			ISrt <- apply(ISrt,2,mean)
+			ISnoise <- apply(ISnoise,2,sum)	
+		}
+			
+	
 		ISdf <- data.frame(area = ISarea, noise = ISnoise, Rt = ISrt)
 		rownames(ISdf) <- row_lables
 		object@internalstd <- ISdf
