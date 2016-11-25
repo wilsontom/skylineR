@@ -4,7 +4,7 @@
 \alias{fitCurve}
 \title{Fit equation to calibration curve}
 \usage{
-fitCurve(x, y, type = "Quad-LogLog")
+fitCurve(x, y, type)
 }
 \arguments{
 \item{x}{a numeric vector of the predictor variable (concentration)}

@@ -4,7 +4,7 @@
 \alias{curveOptimise}
 \title{curveOptimise}
 \usage{
-curveOptimise(x)
+curveOptimise(x, type)
 }
 \arguments{
 \item{x}{a \code{data.frame}}

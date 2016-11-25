@@ -6,9 +6,9 @@
 \alias{calibrate,skyline-method}
 \title{calibrate}
 \usage{
-calibrate(object)
+calibrate(object, type)
 
-\S4method{calibrate}{skyline}(object)
+\S4method{calibrate}{skyline}(object, type)
 }
 \arguments{
 \item{a}{\code{skyline} object}
