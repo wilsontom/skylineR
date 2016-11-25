@@ -24,3 +24,6 @@ predictModel <- function(m, y)
 
   return(as.numeric(new_x))
   }
+
+  
+  

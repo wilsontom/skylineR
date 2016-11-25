@@ -12,7 +12,7 @@
 #' @keywords internal
 
 
-fitCurve <- function(x, y, type = "Quad-LogLog")
+fitCurve <- function(x, y, type)
   {
 
   if(type == "Quad-LogLog"){

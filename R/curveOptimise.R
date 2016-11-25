@@ -8,12 +8,12 @@
 #' @keywords internal
 #'
 
-curveOptimise <- function(x)
+curveOptimise <- function(x, type)
 {
 
   idx <- seq(from = 1, to = nrow(x), by = 1)
 
-  pmin <- round(0.65 * length(idx), digits = 0)
+  pmin <- round(0.55 * length(idx), digits = 0)
   pmax <- length(idx)
 
   prange <- c(pmin:pmax)
@@ -35,16 +35,20 @@ curveOptimise <- function(x)
 
 
   opt_rsq <- round(unlist(lapply(combn_dfs,function(x)(
-      summary(fitCurve(x$y, x$x, type = "Quad-LogLog"))$r.sq))), digits = 5)
+      summary(fitCurve(x$y, x$x, type))$r.sq))), digits = 5)
 
   opt_err <- round(unlist(lapply(combn_dfs, function(x){
-                    predy <- predictModel(fitCurve(x$x,x$y, type = "Quad-LogLog"),x$y)
+                    predy <- predictModel(fitCurve(x$x,x$y, type = type),x$y)
                         median(abs(predy - x$x) / x$x) * 100})), digits = 3)
 
   rsq_id <- which(opt_rsq > 0.98)
-  err_id <- which(opt_err < 15)
+  err_id <- which(opt_err < 25)
 
-
+  # aic_id <- round(unlist(lapply(combn_dfs,function(x)(
+      # AIC(fitCurve(x$y, x$x, type))))), digits = 5)
+	  
+  # err_min_idx <- which(aic_id == min(aic_id))
+	
   id_intersect <- intersect(rsq_id,err_id)
 
   if(length(id_intersect) == 0){

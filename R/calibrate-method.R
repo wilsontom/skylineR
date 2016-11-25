@@ -7,7 +7,7 @@
 #' @include allClasses.R
 
 setMethod(f = "calibrate", signature = "skyline",
-          function(object){
+          function(object, type){
 
           objectName <- as.list(match.call())$object
 				  cali_tmp <- NULL
@@ -17,7 +17,7 @@ setMethod(f = "calibrate", signature = "skyline",
 
   	     names(cali_tmp) <- names(object@calibrants)
 
-			   calibration_tmp <- lapply(cali_tmp, curveOptimise)
+			   calibration_tmp <- lapply(cali_tmp, curveOptimise,type = type)
 
 			   calibration_optimise <- lapply(calibration_tmp, function(x)(x$res))
 			   
