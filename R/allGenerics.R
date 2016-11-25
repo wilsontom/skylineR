@@ -57,7 +57,7 @@ setGeneric(name = "addTransitions",
 
 setGeneric(name = "integrate",
 			def = function(object)
-			{standardGeneric("analyse")}
+			{standardGeneric("integrate")}
 )
 
 #' extractCalibrants
