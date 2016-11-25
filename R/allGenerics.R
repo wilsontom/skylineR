@@ -47,6 +47,18 @@ setGeneric(name = "addTransitions",
 
 )
 
+#' integrate
+#' @rdname integrate
+#' @param a \code{skyline} object
+#' @return NULL
+#'
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
+#' @export
+
+setGeneric(name = "integrate",
+			def = function(object)
+			{standardGeneric("analyse")}
+)
 
 #' extractCalibrants
 #' @rdname extractCalibrants
@@ -71,7 +83,7 @@ setGeneric(name = "extractCalibrants",
 #' @export
 
 setGeneric(name = "calibrate",
-           def = function(object)
+           def = function(object, type)
            {standardGeneric("calibrate")}
 )
 
