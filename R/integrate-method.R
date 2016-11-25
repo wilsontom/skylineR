@@ -1,19 +1,11 @@
+#' integrate
+#' @rdname integrate
+#'
+#'
+#' @include allGenerics.R
+#' @include allClasses.R
 
-
-
-
-
-
-
-
-
-setGeneric(name = "analyse",
-			def = function(object)
-			{standardGeneric("analyse")}
-)
-
-
-setMethod("analyse", signature = "skyline",
+setMethod("integrate", signature = "skyline",
 			function(object){
 			
 			objectName <- as.list(match.call())$object
