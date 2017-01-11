@@ -82,35 +82,7 @@ setMethod("integrate", signature = "skyline",
 					dup_match[[i]] <- split(dup_match[[i]], dup_match[[i]][,"FragmentIon"])
 				}
 			
-			
-			
-				# foo <- function(x){
-					# dup_match2<- NULL
-					# for(i in seq_along(x)){
-						# match_ind <- which(report_list[[i]][,"FragmentIon"] == x[[i]])
-							# dup_match2[[i]]<- report_list[[i]][match_ind,]
-					# }
-					# return(dup_match2)
-				# }
-				
-				
-				
-				# dup_match <- lapply(dup_fragion,foo)
-			
-				# dup_match <- NULL
-				# for(k in seq_along(dup_fragion)){
-					# for(i in seq_along(dup_fragion[[k]])){
-						# match_ind <- which(report_list[[i]][,"FragmentIon"] == dup_fragion[[k]][i])
-							# dup_match[[i]]<- report_list[[i]][match_ind,]
-							
-				# }
-				# dup_match[[k]] <- dup_match[[i]]
-				# dup_match[[k]] <- list(dup_match)
-				
-				# }
-			
-			
-			
+						
 				foo2 <- function(x){
 					dup_match <- x
 					n <- NULL
@@ -126,9 +98,7 @@ setMethod("integrate", signature = "skyline",
 						dup_match[[i]] <- dup_match[[i]][1,]
 					
 					}else{
-					
-					
-					
+									
 					
 					dup_match[[i]] <- data.frame(
 					PeptideSequence = "#N/A", ProteinName = dup_match[[i]][1,"ProteinName"],
@@ -150,15 +120,7 @@ setMethod("integrate", signature = "skyline",
 				
 				dup_match <- lapply(dup_match, foo2)
 				
-				# lapply(dup_fragion, foo3)
-				
-				# foo3 <- function(x)
-				# {
 				for(i in seq_along(dup_fragion)){
-				
-					# for(k in seq_along(dup_fragion[[i]])){
-					
-						# ind_replace <- which(report_list[[i]][,"FragmentIon"] == dup_fragion[[i]])
 				
 				ind_replace <- which(report_list[[i]][,"FragmentIon"] %in% dup_fragion[[i]])
 				
@@ -167,39 +129,7 @@ setMethod("integrate", signature = "skyline",
 						report_list[[i]] <- report_list[[i]][-ind_replace,]
 						report_list[[i]] <- rbind(report_list[[i]], do.call("rbind",dup_match[[i]]))
 					}
-				
-					# ind_replace <- which(report_list[[i]][,"FragmentIon"] == x[i])
-					# report_list[[i]] <- report_list[[i]][-ind_replace,]
-					# report_list[[i]] <- rbind(report_list[[i]], dup_match[[i]])
-				
-				
-				
-				# }
-				# return(report-list)
-				# }
-				
-				
-				
-				
-				
-				
-				# foo3 <- function(x,y)
-				# {
-				# dup_fragion <- y
-				# dup_match <- x
-				# for(i in seq_along(dup_fragion)){
-					# ind_replace <- which(report_list[[i]][,"FragmentIon"] == dup_fragion[[i]])
-					# report_list[[i]] <- report_list[[i]][-ind_replace,]
-					# report_list[[i]] <- rbind(report_list[[i]], dup_match[[i]])
-				# }
-				# return(report_list)
-				# }		
 			
-		
-			# lapply(dup_match, function(x)(foo3(x = x, y = dup_fragion)))
-			
-		
-		
 			}
 			
 			result_lyt_ar <- data.frame(matrix(ncol = length(report_list) + 1, nrow = nrow(report_list[[1]])))
