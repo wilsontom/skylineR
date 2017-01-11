@@ -77,13 +77,22 @@ setGeneric(name = "extractCalibrants",
 #' calibrate
 #' @rdname calibrate
 #' @param a \code{skyline} object
+#' @param type a character string indicating which regression function to use. The options are;
+#' \itemize{
+#'	\item{Lin} {linear}
+#'  \item{LogLog} { logarithmic}
+#'  \item{Quad} { quadratic}
+#'  \item {Quad-LogLog}} {quadratic-logarithmic}
+#' }
+#' @param area a character string of either \code{ratio} or \code{raw}. If \code{ratio} is selected then peak areas are expressed
+#' as a ratio to the internal stanard. If \code{raw} is selected then the raw peak area is used.
 #' @return NULL
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
 setGeneric(name = "calibrate",
-           def = function(object, type)
+           def = function(object, type, area)
            {standardGeneric("calibrate")}
 )
 
@@ -91,13 +100,15 @@ setGeneric(name = "calibrate",
 #' quantify
 #' @rdname quantify
 #' @param a \code{skyline} object
+#' @param area a character string of either \code{ratio} or \code{raw}. If \code{ratio} is selected then peak areas are expressed
+#' as a ratio to the internal stanard. If \code{raw} is selected then the raw peak area is used.
 #' @return NULL
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
 setGeneric(name = "quantify",
-           def = function(object)
+           def = function(object, area)
            {standardGeneric("quantify")}
 )
 
