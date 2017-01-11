@@ -7,29 +7,40 @@
 #' @include allClasses.R
 
 setMethod(f = "calibrate", signature = "skyline",
-          function(object, type){
+          function(object, type, area){
 
           objectName <- as.list(match.call())$object
-				  cali_tmp <- NULL
-	       for(i in seq_along(object@calibrants)){
-			          cali_tmp[[i]] <- data.frame(x = object@calibrants[[i]][,"conc"],y = object@calibrants[[i]][,"ratio"])
-	        }
-
+		   
+		   if(area == "ratio"){		   
+				cali_tmp <- NULL
+				for(i in seq_along(object@calibrants)){
+					cali_tmp[[i]] <- data.frame(x = object@calibrants[[i]][,"conc"],y = object@calibrants[[i]][,"ratio"])
+				}
+			}
+			
+		   if(area == "raw"){		   
+				cali_tmp <- NULL
+				for(i in seq_along(object@calibrants)){
+					cali_tmp[[i]] <- data.frame(x = object@calibrants[[i]][,"conc"],y = object@calibrants[[i]][,"area"])
+				}
+			}
+					
+			
   	     names(cali_tmp) <- names(object@calibrants)
 
-			   calibration_tmp <- lapply(cali_tmp, curveOptimise,type = type)
-
-			   calibration_optimise <- lapply(calibration_tmp, function(x)(x$res))
+		calibration_tmp <- lapply(cali_tmp, curveOptimise,type = type)
+		calibration_optimise <- lapply(calibration_tmp, function(x)(x$res))
 			   
 					
-		calib_df <- data.frame(matrix(nrow = length(calibration_optimise), ncol = 5))
-          names(calib_df) <- c("id", "Rsq", "n", "err", "range")
+		calib_df <- data.frame(matrix(nrow = length(calibration_optimise), ncol = 6))
+          names(calib_df) <- c("id", "Rsq", "n", "err", "range", "function")
           for(i in seq_along(calibration_optimise)){
             calib_df[i,"id"] <- names(calibration_optimise)[i]
             calib_df[i,"Rsq"] <- as.numeric(calibration_optimise[[i]][["rsq"]])
             calib_df[i,"n"] <- as.numeric(calibration_optimise[[i]][["pts"]])
             calib_df[i,"err"] <- as.numeric(calibration_optimise[[i]][["error"]])
-			      calib_df[i,"range"] <- calibration_optimise[[i]][["quant_range"]]
+			calib_df[i,"range"] <- calibration_optimise[[i]][["quant_range"]]
+			calib_df[i,"function"] <- type
           }
 
 		  
