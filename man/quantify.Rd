@@ -6,11 +6,14 @@
 \alias{quantify,skyline-method}
 \title{quantify}
 \usage{
-quantify(object)
+quantify(object, area)
 
-\S4method{quantify}{skyline}(object)
+\S4method{quantify}{skyline}(object, area)
 }
 \arguments{
+\item{area}{a character string of either \code{ratio} or \code{raw}. If \code{ratio} is selected then peak areas are expressed
+as a ratio to the internal stanard. If \code{raw} is selected then the raw peak area is used.}
+
 \item{a}{\code{skyline} object}
 }
 \description{
