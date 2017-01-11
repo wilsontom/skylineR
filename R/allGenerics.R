@@ -80,9 +80,9 @@ setGeneric(name = "extractCalibrants",
 #' @param type a character string indicating which regression function to use. The options are;
 #' \itemize{
 #'	\item{Lin} {linear}
-#'  \item{LogLog} { logarithmic}
-#'  \item{Quad} { quadratic}
-#'  \item {Quad-LogLog}} {quadratic-logarithmic}
+#'  \item{LogLog} {logarithmic}
+#'  \item{Quad} {quadratic}
+#'  \item {Quad-LogLog} {quadratic-logarithmic}
 #' }
 #' @param area a character string of either \code{ratio} or \code{raw}. If \code{ratio} is selected then peak areas are expressed
 #' as a ratio to the internal stanard. If \code{raw} is selected then the raw peak area is used.
