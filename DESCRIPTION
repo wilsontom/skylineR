@@ -15,19 +15,12 @@ Suggests:
 LazyData: TRUE
 URL: https://github.com/wilsontom/skylineR
 BugReports: https://github.com/wilsontom/skylineR/issues
-Collate:
+Collate: 
     'allClasses.R'
     'allGenerics.R'
-    'addFiles-method.R'
-    'addInfo-method.R'
-    'addTransitions-method.R'
-    'calibrate-method.R'
-    'curveOptimise.R'
-    'extractCalibrants-method.R'
-    'extractIS.R'
-    'fitCurve.R'
-    'integrate-method.R'
-    'plotCalibrant-method.R'
-    'predictModel.R'
-    'quantify-method.R'
-RoxygenNote: 5.0.1
+    'add_files-method.R'
+    'add_phenoData-method.R'
+    'add_transitions.R'
+    'get_internalSTD.R'
+    'get_peakInfo.R'
+RoxygenNote: 6.0.1
