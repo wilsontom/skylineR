@@ -1,141 +1,74 @@
-#' addFiles
-#' @rdname addFiles
+#' add_filePaths
+#'
+#' @rdname add_filePaths
 #' @param object a \code{skyline} object
-#' @param filepath a valid filepath to directory of \code{.raw} files
+#' @param filePaths a vector of valid file (`.raw`, `.mzML` or `.mxXML`) locations for analysis
 #' @return NULL
 #'
-#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
-setGeneric(name = "addFiles",
-           def = function(object, filepath)
-           {standardGeneric("addFiles")}
+setGeneric(name = "add_filePaths",
+             def = function(object, filePaths)
+               {standardGeneric("add_filePaths")}
 )
 
 
-#' addInfo
-#' @rdname addInfo
+#' add_phenoData
+#'
+#' @rdname add_phenoData
 #' @param object a \code{skyline} object
-#' @param a runinfo \code{data.frame}
+#' @param phenoData a runinfo \code{data.frame}
 #' @return NULL
 #'
-#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
 
-setGeneric(name = "addInfo",
-           def = function(object, runinfo)
-           {standardGeneric("addInfo")}
-
+setGeneric(name = "add_phenoData",
+           def = function(object, phenoData)
+           {standardGeneric("add_phenoData")}
 )
 
 
-#' addTransitions
-#' @rdname addTransitions
+#' add_transitions
+#'
+#'
+#' @rdname add_transitions
 #' @param object a \code{skyline} object
-#' @param a \code{data.frame} of transition information. The \code{data.frame} must contain the following columns;
+#' @param transitions a \code{data.frame} of transition information. The \code{data.frame} must contain the following columns;
 #' PrecursorName, PrecursorRT, PrecursorMz, ProductMz,PrecursorCharge and ProductCharge
 #' @return NULL
 #'
-#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
 
-setGeneric(name = "addTransitions",
-           def = function(object, transitionList)
-           {standardGeneric("addTransitions")}
+setGeneric(name = "add_transitions",
+           def = function(object, transitions)
+           {standardGeneric("add_transitions")}
 
 )
 
-#' integrate
-#' @rdname integrate
-#' @param a \code{skyline} object
+#' get_peakInfo
+#' @rdname get_peakInfo
+#' @param object a \code{skyline} object
 #' @return NULL
 #'
-#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
-setGeneric(name = "integrate",
+setGeneric(name = "get_peakInfo",
 			def = function(object)
-			{standardGeneric("integrate")}
+			{standardGeneric("get_peakInfo")}
 )
 
-#' extractCalibrants
-#' @rdname extractCalibrants
-#' @param a \code{skyline} object
+
+#' get_internalSTD
+#'
+#' @rdname get_internalSTD
+#' @param object a \code{skyline} object
 #' @return NULL
 #'
-#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
-setGeneric(name = "extractCalibrants",
+setGeneric(name = "get_internalStd",
            def = function(object)
-           {standardGeneric("extractCalibrants")}
-
-)
-
-#' calibrate
-#' @rdname calibrate
-#' @param a \code{skyline} object
-#' @param type a character string indicating which regression function to use. The options are;
-#' \itemize{
-#'	\item{Lin} {linear}
-#'  \item{LogLog} {logarithmic}
-#'  \item{Quad} {quadratic}
-#'  \item {Quad-LogLog} {quadratic-logarithmic}
-#' }
-#' @param area a character string of either \code{ratio} or \code{raw}. If \code{ratio} is selected then peak areas are expressed
-#' as a ratio to the internal stanard. If \code{raw} is selected then the raw peak area is used.
-#' @return NULL
-#'
-#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
-#' @export
-
-setGeneric(name = "calibrate",
-           def = function(object, type, area)
-           {standardGeneric("calibrate")}
-)
-
-
-#' quantify
-#' @rdname quantify
-#' @param a \code{skyline} object
-#' @param area a character string of either \code{ratio} or \code{raw}. If \code{ratio} is selected then peak areas are expressed
-#' as a ratio to the internal stanard. If \code{raw} is selected then the raw peak area is used.
-#' @return NULL
-#'
-#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
-#' @export
-
-setGeneric(name = "quantify",
-           def = function(object, area)
-           {standardGeneric("quantify")}
-)
-
-
-#' plotCalibrant
-#' @rdname plotCalibrant
-#' @param a \code{skyline} object
-#' @return NULL
-#'
-#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
-#' @export
-
-setGeneric(name = "plotCalibrant",
-           def = function(object, name, type)
-           {standardGeneric("plotCalibrant")}
-)
-
-
-#' extractIS
-#' @rdname extractIS
-#' @param a \code{skyline} object
-#' @return NULL
-#'
-#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
-#' @export
-
-setGeneric(name = "extractIS",
-           def = function(object)
-           {standardGeneric("extractIS")}
+           {standardGeneric("get_internalStd")}
 )
