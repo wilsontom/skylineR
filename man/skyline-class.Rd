@@ -18,20 +18,14 @@ An \code{S4} class for performing quantitative analysis of SRM-MS data using \co
 
 \item{\code{tempPath}}{character of path where temporary files are written to}
 
-\item{\code{runinfo}}{a runinfo \code{data.frame}}
+\item{\code{phenoData}}{a runinfo \code{data.frame}}
 
 \item{\code{transitions}}{a \code{data.frame} of transition information. The transitions must be identical to those in the \code{SkyTransitionFile.sky}}
 
-\item{\code{filepaths}}{a character vector of \code{.raw} filepaths}
+\item{\code{filePaths}}{a character vector of \code{.raw} filepaths}
 
 \item{\code{peakInfo}}{a list of peak picking results}
 
-\item{\code{calibrants}}{a list of raw peak areas for all calibration samples}
-
-\item{\code{calibration}}{a \code{data.frame} of calibration results which will be used for quantification}
-
-\item{\code{internalstd}}{a \code{data.frame} of peak information for the internal standard (IS) in each sample}
-
-\item{\code{quant}}{a \code{data.frame} of result}
+\item{\code{internalStd}}{a \code{data.frame} of peak information for the internal standard (IS) in each sample}
 }}
 
