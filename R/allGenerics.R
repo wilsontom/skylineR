@@ -1,15 +1,15 @@
-#' add_filePaths
+#' add_filepaths
 #'
-#' @rdname add_filePaths
+#' @rdname add_filepaths
 #' @param object a \code{skyline} object
-#' @param filePaths a vector of valid file (`.raw`, `.mzML` or `.mxXML`) locations for analysis
+#' @param filepaths a vector of valid file (`.raw`, `.mzML` or `.mxXML`) locations for analysis
 #' @return NULL
 #'
 #' @export
 
-setGeneric(name = "add_filePaths",
-             def = function(object, filePaths)
-               {standardGeneric("add_filePaths")}
+setGeneric(name = "add_filepaths",
+             def = function(object, filepaths)
+               {standardGeneric("add_filepaths")}
 )
 
 
@@ -46,6 +46,21 @@ setGeneric(name = "add_transitions",
            {standardGeneric("add_transitions")}
 
 )
+
+
+
+#' add_path
+#'
+#' @rdname add_path
+#'
+setGeneric(name = "add_path",
+           def = function(object, path)
+           {standardGeneric("add_path")}
+
+)
+
+
+
 
 #' get_peakInfo
 #' @rdname get_peakInfo
