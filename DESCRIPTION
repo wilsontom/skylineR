@@ -8,8 +8,7 @@ Description: skylineR is a R workflow for small molecule quantification using se
     monitoring (SRM) mass spectrometry (MS) data and skyline.
 License: GPL (>= 3.0)
 Depends:
-    methods,
-    ggplot2
+    methods
 Suggests:
     testthat
 LazyData: TRUE
