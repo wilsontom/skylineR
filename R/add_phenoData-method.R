@@ -13,11 +13,9 @@ setMethod(f = "add_phenoData", signature = "skyline",
 
             objectName <- as.list(match.call())$object
 
-            if(nrow(phenoData) != length(object@filePaths)){
-              stop("")
-            }
+            validate_phenoData(phenoData, object)
 
-            object@phenoData <- phenoDta
+            object@phenoData <- phenoData
             assign(eval(paste(text = objectName)),object, envir = .GlobalEnv)
           }
 )

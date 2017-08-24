@@ -12,22 +12,10 @@ setMethod(f = "add_transitions", signature = "skyline",
 
             objectName <- as.list(match.call())$object
 
+            validate_transitions(transitions)
 
-            nmRef <- c("PrecursorName", "PrecursorRT","PrecursorMz", "ProductMz","PrecursorCharge", "ProductCharge")
-
-            nmCh <- names(transitions) == nmRef
-
-            if(any(nmCh == FALSE)){
-              stop("transition list is not named correctly, refer to ... for help", call. = FALSE)
-            }
-
-            transCh <- transitions[,"ProductMz"] < transitions[,"PrecursorMz"]
-
-            if(any(transCh == FALSE)){
-              message("WARNING: Product m/z value (Q3mz) found which is greater than precursor m/z value (Q1mz)")
-            }
-            transitions2 <- data.frame(MoleculeGroup = transitions[,"PrecursorName"], transitions)
-            object@transitions <- transitions2
+            skyline_transitions <- data.frame(MoleculeGroup = transitions[,"PrecursorName"], transitions)
+            object@transitions <- skyline_transitions
             assign(eval(paste(text = objectName)),object, envir = .GlobalEnv)
           }
 )
