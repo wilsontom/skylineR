@@ -16,13 +16,13 @@ An \code{S4} class for performing quantitative analysis of SRM-MS data using \co
 
 \item{\code{SkylineTransition}}{character of path to Skyline transition file (\code{.sky})}
 
-\item{\code{tempPath}}{character of path where temporary files are written to}
+\item{\code{path}}{character of path where temporary files are written to}
 
 \item{\code{phenoData}}{a runinfo \code{data.frame}}
 
 \item{\code{transitions}}{a \code{data.frame} of transition information. The transitions must be identical to those in the \code{SkyTransitionFile.sky}}
 
-\item{\code{filePaths}}{a character vector of \code{.raw} filepaths}
+\item{\code{filepaths}}{a character vector of \code{.raw} filepaths}
 
 \item{\code{peakInfo}}{a list of peak picking results}
 
