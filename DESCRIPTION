@@ -17,9 +17,11 @@ BugReports: https://github.com/wilsontom/skylineR/issues
 Collate: 
     'allClasses.R'
     'allGenerics.R'
-    'add_files-method.R'
+    'add_filepaths-method.R'
+    'add_path-method.R'
     'add_phenoData-method.R'
     'add_transitions.R'
     'get_internalSTD.R'
     'get_peakInfo.R'
+    'internals.R'
 RoxygenNote: 6.0.1

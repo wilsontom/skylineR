@@ -1,0 +1,44 @@
+---
+title: "skylineR"
+author: "Tom Wilson"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
+```
+
+## Introduction
+
+`skylineR` is an R package which aims to act as a semi-autonomous workflow for quantitative analysis of small molecule selective reaction monitoring (SRM) mass spectrometry (MS) data. While there are a plethora of R packages available for MS feature detection (ie, xcms); small molecule targeted SRM-MS is unique in that data is represented by a series of chromatograms, not m/z spectra. Skyline does an excellent job at automatically integrating chromographic peak area's for each SRM transition. Again, while this task can be easily done using vendor specific software (ie, QuanBrowser (Thermo)), Skyline is 100% open source and accepts any file format as an input. Another highlilght of `Skyline` is that it features a command line interface (SkylineRunnerCommand) which peaks SRM-MS peak detection and integration can be performed quickly from within R.
+
+## Installation & Requirements
+
+This package has been developed using `Skyline Version `
+
+Skyline is a Windows OS only application. The specifications of the Windows Virtual Machine used to develop this package are;
+
+  - Windows 7 Enterprise (x64) SP1
+  - Intel Xeon CPU E5-2640 2.50 GHz
+  - 8.25 GB RAM
+  
+
+
+Installing the `skylineR` R package is simple using either `devtools` or from source.
+
+To install using `devtools`;
+
+```R
+devtools::install_github("wilsontom/forestControl")
+```
+or from source;
+
+```sh
+git clone https://github.com/wilsontom/skylineR
+R CMD build skylineR
+R CMD INSTALL sylineR_0.1.0.tar.gz
+```
+
