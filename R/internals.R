@@ -56,3 +56,32 @@ validate_transitions <- function(x)
   return(invisible(NULL))
   }
 
+#' Skyline CommandLine Runner
+#'
+#' @param x a character vector 
+#' @return NULL
+#' @keywords internal
+   
+skyline_runner <- function(x)
+	{
+	object <- getOption("SkylineObject")
+
+	SKYLINE <- object@SkylinePath
+	SKYD <- paste0("--in=", object@SkylineTransition)
+	TRANSITIONS <- paste0("--import-transition-list=",paste0(object@path,"/transitions_temp.csv"))
+	IN <- paste0("--import-file=", x)
+	nmtp <- paste0(strsplit(basename(x), "\\.")[[1]][1], ".csv")
+	REPORT_NAME <- paste0(object@path, "/",nmtp)
+	REPORT_a <- paste0("--report-name=\"Transition Results\" --report-file=",REPORT_NAME, " --report-invariant")
+	ANALYSE_CMD <- paste(SKYLINE,TRANSITIONS,SKYD,IN,REPORT_a, sep = " ")
+
+	system(ANALYSE_CMD, intern = FALSE)
+	}
+
+  
+  
+  
+  
+  
+  
+  
