@@ -52,13 +52,17 @@ setGeneric(name = "add_transitions",
 #' add_path
 #'
 #' @rdname add_path
-#'
+#' @param object a \code{skyline} object
+#' @param path a character string a an existing directory to be used for temporary file writing  
+#' @return NULL
+
+#' @export
+
 setGeneric(name = "add_path",
            def = function(object, path)
            {standardGeneric("add_path")}
 
 )
-
 
 
 
@@ -75,15 +79,3 @@ setGeneric(name = "get_peakInfo",
 )
 
 
-#' get_internalSTD
-#'
-#' @rdname get_internalSTD
-#' @param object a \code{skyline} object
-#' @return NULL
-#'
-#' @export
-
-setGeneric(name = "get_internalStd",
-           def = function(object)
-           {standardGeneric("get_internalStd")}
-)
