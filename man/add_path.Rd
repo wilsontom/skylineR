@@ -10,6 +10,11 @@ add_path(object, path)
 
 \S4method{add_path}{skyline}(object, path)
 }
+\arguments{
+\item{object}{a \code{skyline} object}
+
+\item{path}{a character string a an existing directory to be used for temporary file writing}
+}
 \description{
 add_path
 
