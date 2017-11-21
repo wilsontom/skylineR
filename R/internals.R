@@ -7,9 +7,9 @@
 
 validate_phenoData <- function(x, object)
   {
-  name_dict <- c("fileName", "name")
+  #name_dict <- c("fileName", "name")
 
-  name_check <- names(x) == c("fileName", "sampleName")
+  name_check <- names(x) == c("fileName", "name")
 
   if(any(name_check) == FALSE){
     stop(deparse(substitute(x)), " is not named correctly")
@@ -38,8 +38,8 @@ validate_phenoData <- function(x, object)
 validate_transitions <- function(x)
   {
   # check column names first
-  nmRef <- c("PrecursorName", "PrecursorRT","PrecursorMz", "ProductMz","PrecursorCharge", "ProductCharge")
-
+  #nmRef <- c("MoleculeGroup","PrecursorName", "PrecursorRT","PrecursorMz", "ProductMz","PrecursorCharge", "ProductCharge")
+  nmRef <- c('name', 'rt', 'parent', 'product', 'charge')
   nmCh <- names(x) == nmRef
 
   if(any(nmCh == FALSE)){
@@ -47,21 +47,35 @@ validate_transitions <- function(x)
   }
 
   # check values
-  transCh <- x[,"ProductMz"] < x[,"PrecursorMz"]
+  transCh <- x[,'product'] < x[,'parent']
 
   if(any(transCh == FALSE)){
     message("WARNING: Product m/z value (Q3mz) found which is greater than precursor m/z value (Q1mz)")
   }
 
-  return(invisible(NULL))
+
+  transitions <- data.frame(MoleculeGroup = x[,'name'],PrecursorName = x[,'name'],
+                            PrecursorRT = x[,'rt'], PrecursorMz = x[,'parent'],
+                            Product = x[,'product'], PrecursorCharge = x[,'charge'],
+                            ProductCharge = x[,'charge'])
+
+
+  transitions[,'PrecursorCharge'] <- gsub('\\+',1,transitions[,'PrecursorCharge'] )
+  transitions[,'PrecursorCharge'] <- gsub('\\-',-1,transitions[,'PrecursorCharge'] )
+
+  transitions[,'ProductCharge'] <- gsub('\\+', 1,transitions[,'ProductCharge'] )
+  transitions[,'ProductCharge'] <- gsub('\\-', -1,transitions[,'ProductCharge'] )
+
+
+  return(transitions)
   }
 
 #' Skyline CommandLine Runner
 #'
-#' @param x a character vector 
+#' @param x a character vector
 #' @return NULL
 #' @keywords internal
-   
+
 skyline_runner <- function(x)
 	{
 	object <- getOption("SkylineObject")
@@ -78,10 +92,10 @@ skyline_runner <- function(x)
 	system(ANALYSE_CMD, intern = FALSE)
 	}
 
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+

@@ -12,10 +12,10 @@ setMethod(f = "add_transitions", signature = "skyline",
 
             objectName <- as.list(match.call())$object
 
-            validate_transitions(transitions)
+            transitions <- validate_transitions(transitions)
 
-            skyline_transitions <- data.frame(MoleculeGroup = transitions[,"PrecursorName"], transitions)
-            object@transitions <- skyline_transitions
+            #skyline_transitions <- data.frame(MoleculeGroup = transitions[,"PrecursorName"], transitions)
+            object@transitions <- transitions
             assign(eval(paste(text = objectName)),object, envir = .GlobalEnv)
           }
 )
