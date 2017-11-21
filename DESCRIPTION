@@ -4,12 +4,15 @@ Title: R workflow for SRM-MS quantification using Skyline
 Version: 0.0.99
 Author: Tom Wilson <tpw2@aber.ac.uk>
 Maintainer: Tom Wilson <tpw2@aber.ac.uk>
-Description: skylineR is a R workflow for small molecule quantification using selective reaction
-    monitoring (SRM) mass spectrometry (MS) data and skyline.
+Description: skylineR is a R workflow for small molecule quantification using
+    selective reaction monitoring (SRM) mass spectrometry (MS) data and skyline.
 License: GPL (>= 3.0)
 Depends:
     methods,
-    ggplot2
+    dplyr,
+	  purrr
+Imports:
+    tidyr
 Suggests:
     testthat
 LazyData: TRUE
@@ -18,16 +21,10 @@ BugReports: https://github.com/wilsontom/skylineR/issues
 Collate:
     'allClasses.R'
     'allGenerics.R'
-    'addFiles-method.R'
-    'addInfo-method.R'
-    'addTransitions-method.R'
-    'calibrate-method.R'
-    'curveOptimise.R'
-    'extractCalibrants-method.R'
-    'extractIS.R'
-    'fitCurve.R'
-    'integrate-method.R'
-    'plotCalibrant-method.R'
-    'predictModel.R'
-    'quantify-method.R'
-RoxygenNote: 5.0.1
+    'add_filepaths-method.R'
+    'add_path-method.R'
+    'add_phenoData-method.R'
+    'add_transitions.R'
+    'get_peakInfo-method.R'
+    'internals.R'
+RoxygenNote: 6.0.1

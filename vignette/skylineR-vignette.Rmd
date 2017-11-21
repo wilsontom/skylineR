@@ -1,0 +1,165 @@
+---
+title: "skylineR"
+author: "Tom Wilson"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+`skylineR` is an R package which aims to act as a semi-autonomous workflow for quantitative analysis of small molecule selective reaction monitoring (SRM) mass spectrometry (MS) data. While there are a plethora of R packages available for MS feature detection (ie, xcms); small molecule targeted SRM-MS is unique in that data is represented by a series of chromatograms, not m/z spectra. Skyline does an excellent job at automatically integrating chromographic peak area's for each SRM transition. Again, while this task can be easily done using vendor specific software (ie, QuanBrowser (Thermo)), Skyline is 100% open source and accepts any file format as an input. Another highlilght of `Skyline` is that it features a command line interface (SkylineRunnerCommand) which means SRM-MS peak detection and integration can be performed quickly from within R.
+
+## Installation & Requirements
+
+This package has been developed using `Skyline Version `
+
+_Skyline is a Windows OS only application_. The specifications of the Windows Virtual Machine used to develop this package are;
+
+  - Windows 7 Enterprise (x64) SP1
+  - Intel Xeon CPU E5-2640 2.50 GHz
+  - 8.25 GB RAM
+  
+
+Installing the `skylineR` R package is simple using either `devtools` or from source.
+
+To install using `devtools`;
+
+```R
+devtools::install_github("wilsontom/skylineR")
+```
+or from source;
+
+```sh
+git clone https://github.com/wilsontom/skylineR
+R CMD build skylineR
+R CMD INSTALL sylineR_0.1.0.tar.gz
+```
+
+## Starting a New Experiment
+
+`skylineR` is ideally designed for dealing with batches of samples,and not single files. 
+
+#### To start a new experiment; 
+
+```{r, echo = TRUE}
+suppressPackageStartupMessages(library(skylineR))
+skylineR_vignette <- new('skyline')
+```
+
+#### Add filepaths
+
+```{r, echo = TRUE}
+example_files <-
+  list.files(system.file('extdata', package = 'skylineR'),
+  pattern = '.mzML',
+  full = TRUE)
+
+add_filepaths(skylineR_vignette, example_files)
+
+```
+
+
+#### Add phenoData
+
+```{r, echo = TRUE}
+example_pheno <-
+  read.csv(
+  system.file('extdata/example_pheno.csv', package = 'skylineR'),
+  header = TRUE,
+  stringsAsFactors = FALSE
+  )
+
+example_pheno
+
+add_phenoData(skylineR_vignette, example_pheno)
+```
+
+#### Add Transitions
+
+The transition information should be a `data.frame` containing the following columns;
+
+  - name : Transiton name
+  - rt : Retention time
+  - parent : _m/z_ value of the transitions parent
+  - product : _m/z_ value of the transition product
+  - charge : charge (+ = positive, - = negative)
+  
+```{r, echo = TRUE}
+example_transitions <-
+  read.csv(
+  system.file('extdata/example_transitions.csv', package = 'skylineR'),
+  header = TRUE,
+  stringsAsFactors = FALSE
+  )
+
+example_transitions
+```
+
+The `add_transitions` method formats the transition `data.frame` into the correct format required by Skyline. 
+
+```{r, echo = TRUE}
+add_transitions(skylineR_vignette, example_transitions)
+skylineR_vignette@transitions
+```
+
+
+
+#### Add temporary filepath
+
+The Skyliner command line executable operates by producting a `.csv` report for each sample. A temporary filepath is needed so that these `.csv` files can be essily located by `skylineR` and aggregated to produce the final peak information tables.
+
+The temporary path must be an __exisiting empty__ directory.
+
+```{r, echo = TRUE}
+add_path(skylineR_vignette, 'some_path')
+
+add_path(skylineR_vignette, '../inst')
+
+add_path(skylineR_vignette, paste0(getwd(), '/temp'))
+
+skylineR_vignette@path
+
+```
+
+#### Add `SkylineRunner.exe` path
+
+`SkylineRunner.exe` is the command line executable which allows `Skyline` to be run through the command line instead of a GUI. The `SkylineRunner.exe` can be downloaded from [here](https://skyline.ms/wiki/home/software/Skyline/download.view?entityId=c33e5f41-9c2a-102f-a8bb-da20258202b3&name=SkylineRunner.exe). 
+
+```{r, echo = FALSE}
+skylineR_vignette@SkylinePath <- '../inst/SkylineRunner.exe'
+
+```
+
+
+#### Running Skyline
+
+Once all the nesscary inputs have been added to the object; the `get_peak_info` method can be used to extract integrated areas of SRM chromatograms.
+
+```{r, echo = TRUE}
+get_peakInfo(skylineR_vignette)
+```
+
+The extracted integrations, retention times and background (noise) are then stored as a list in the `peakInfo` slot of the `skyline` object.
+
+```{r, echo = TRUE}
+names(skylineR_vignette@peakInfo)
+
+skylineR_vignette@peakInfo['PeakArea']
+
+skylineR_vignette@peakInfo['PeakNoise']
+
+skylineR_vignette@peakInfo['RetentionTime']
+
+
+
+
+
+
+
+
+
