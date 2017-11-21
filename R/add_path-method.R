@@ -16,6 +16,10 @@ setMethod(f = "add_path", signature = "skyline",
               stop(deparse(substitute(path)), " must be an exisiting directory path", call. = FALSE)
             }
 
+            if(length(list.files(path) != 0)){
+              stop(deparse(substitute(path)), " must be an empty directory", call. = FALSE)
+            }
+
             object@path <- path
             assign(eval(paste(text = objectName)),object, envir = .GlobalEnv)
           }
