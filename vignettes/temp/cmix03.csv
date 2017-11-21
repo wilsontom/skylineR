@@ -1,0 +1,5 @@
+PeptideSequence,ProteinName,ReplicateName,PrecursorMz,PrecursorCharge,ProductMz,ProductCharge,FragmentIon,RetentionTime,Area,Background,PeakRank
+#N/A,3-Methylhistidine,cmix03,170.059,1,95.345,1,Ion [95.345549/95.345549],10.723933219909668,23138980,620081.625,1
+#N/A,Carnitine,cmix03,162.153,1,103.301,1,Ion [103.301549/103.301549],9.9329500198364258,29608190,222637.0625,1
+#N/A,Creatinine,cmix03,114.129,1,44.695,1,Ion [44.695549/44.695549],8.33763313293457,39294312,203805.984375,1
+#N/A,Trimethylamine-N-oxide,cmix03,76.188,1,58.517,1,Ion [58.517549/58.517549],8.90898323059082,31505754,267426.78125,1

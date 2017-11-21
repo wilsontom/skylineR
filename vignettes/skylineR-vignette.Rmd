@@ -1,15 +1,20 @@
 ---
-title: "skylineR"
-author: "Tom Wilson"
-output:
-  html_document:
-    toc: true
+title: 'skylineR-vignette'
+author: 'Tom Wilson'
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
 ```
-
 ## Introduction
 
 `skylineR` is an R package which aims to act as a semi-autonomous workflow for quantitative analysis of small molecule selective reaction monitoring (SRM) mass spectrometry (MS) data. While there are a plethora of R packages available for MS feature detection (ie, xcms); small molecule targeted SRM-MS is unique in that data is represented by a series of chromatograms, not m/z spectra. Skyline does an excellent job at automatically integrating chromographic peak area's for each SRM transition. Again, while this task can be easily done using vendor specific software (ie, QuanBrowser (Thermo)), Skyline is 100% open source and accepts any file format as an input. Another highlilght of `Skyline` is that it features a command line interface (SkylineRunnerCommand) which means SRM-MS peak detection and integration can be performed quickly from within R.
@@ -156,3 +161,4 @@ skylineR_vignette@peakInfo['PeakNoise']
 
 skylineR_vignette@peakInfo['RetentionTime']
 ```
+

@@ -13,7 +13,9 @@ Depends:
 Imports:
     tidyr
 Suggests:
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 LazyData: TRUE
 URL: https://github.com/wilsontom/skylineR
 BugReports: https://github.com/wilsontom/skylineR/issues
@@ -27,3 +29,4 @@ Collate:
     'get_peakInfo-method.R'
     'internals.R'
 RoxygenNote: 6.0.1
+VignetteBuilder: knitr
