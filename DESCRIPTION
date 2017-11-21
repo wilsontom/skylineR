@@ -1,11 +1,10 @@
 Package: skylineR
 Type: Package
-Title: R workflow for SRM-MS quantification using Skyline
+Title: R wrapper for SRM-MS integration using Skyline
 Version: 0.0.99
 Author: Tom Wilson <tpw2@aber.ac.uk>
 Maintainer: Tom Wilson <tpw2@aber.ac.uk>
-Description: skylineR is a R workflow for small molecule quantification using
-    selective reaction monitoring (SRM) mass spectrometry (MS) data and skyline.
+Description: skylineR is a R wrapper around the SkylineRunner.exe for integration of selective reaction monitoring (SRM) mass spectrometry (MS) chromatograms.
 License: GPL (>= 3.0)
 Depends:
     methods,
