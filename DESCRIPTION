@@ -10,7 +10,7 @@ License: GPL (>= 3.0)
 Depends:
     methods,
     dplyr,
-	purrr
+	  purrr
 Imports:
     tidyr
 Suggests:

@@ -1,2 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+vignette/temp
+inst/SkylineRunner.exe
+vignette/skylineR-vignette.html

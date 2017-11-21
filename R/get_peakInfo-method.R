@@ -23,7 +23,7 @@ setMethod("get_peakInfo", signature = "skyline",
 
 
             result_reports <-
-              list.files(object@path, pattern = ".csv", full = TRUE)
+              list.files(object@path, pattern = ".csv", full.names = TRUE)
 
             results_raw <- map(as.list(result_reports), read.csv)
 

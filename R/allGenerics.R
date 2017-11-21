@@ -53,7 +53,7 @@ setGeneric(name = "add_transitions",
 #'
 #' @rdname add_path
 #' @param object a \code{skyline} object
-#' @param path a character string a an existing directory to be used for temporary file writing  
+#' @param path a character string a an existing directory to be used for temporary file writing
 #' @return NULL
 
 #' @export
@@ -72,6 +72,9 @@ setGeneric(name = "add_path",
 #' @return NULL
 #'
 #' @export
+#' @importFrom utils read.csv write.csv
+#' @importFrom dplyr  %>% bind_rows
+#' @importFrom purrr map
 
 setGeneric(name = "get_peakInfo",
 			def = function(object)

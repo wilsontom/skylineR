@@ -25,7 +25,5 @@ An \code{S4} class for performing quantitative analysis of SRM-MS data using \co
 \item{\code{filepaths}}{a character vector of \code{.raw} filepaths}
 
 \item{\code{peakInfo}}{a list of peak picking results}
-
-\item{\code{internalStd}}{a \code{data.frame} of peak information for the internal standard (IS) in each sample}
 }}
 

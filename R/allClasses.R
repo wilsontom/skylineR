@@ -10,6 +10,8 @@
 #' @slot transitions a \code{data.frame} of transition information. The transitions must be identical to those in the \code{SkyTransitionFile.sky}
 #' @slot filepaths a character vector of \code{.raw} filepaths
 #' @slot peakInfo a list of peak picking results
+#'
+#' @importFrom methods setClass
 
 setClass(Class = "skyline", slots = c(
   env = "environment",
