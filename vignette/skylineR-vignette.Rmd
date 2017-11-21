@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This package has been developed using `Skyline Version `
 
-_Skyline is a Windows OS only application_. The specifications of the Windows Virtual Machine used to develop this package are;
+__Skyline is a Windows OS only application__. The specifications of the Windows Virtual Machine used to develop this package are;
 
   - Windows 7 Enterprise (x64) SP1
   - Intel Xeon CPU E5-2640 2.50 GHz
@@ -48,6 +48,7 @@ R CMD INSTALL sylineR_0.1.0.tar.gz
 
 ```{r, echo = TRUE}
 suppressPackageStartupMessages(library(skylineR))
+
 skylineR_vignette <- new('skyline')
 ```
 
@@ -83,11 +84,11 @@ add_phenoData(skylineR_vignette, example_pheno)
 
 The transition information should be a `data.frame` containing the following columns;
 
-  - name : Transiton name
-  - rt : Retention time
-  - parent : _m/z_ value of the transitions parent
-  - product : _m/z_ value of the transition product
-  - charge : charge (+ = positive, - = negative)
+  - __name__ : Transiton name
+  - __rt__ : Retention time
+  - __parent__ : _m/z_ value of the transitions parent
+  - __product__ : _m/z_ value of the transition product
+  - __charge__ : charge (+ = positive, - = negative)
   
 ```{r, echo = TRUE}
 example_transitions <-
@@ -128,7 +129,7 @@ skylineR_vignette@path
 
 #### Add `SkylineRunner.exe` path
 
-`SkylineRunner.exe` is the command line executable which allows `Skyline` to be run through the command line instead of a GUI. The `SkylineRunner.exe` can be downloaded from [here](https://skyline.ms/wiki/home/software/Skyline/download.view?entityId=c33e5f41-9c2a-102f-a8bb-da20258202b3&name=SkylineRunner.exe). 
+`SkylineRunner.exe` is the command line executable which allows `Skyline` to be run through the command line instead of a GUI. The `SkylineRunner.exe` can be downloaded from [here](https://skyline.ms/wiki/home/software/Skyline/page.view?name=SkylineInstall_3-7). 
 
 ```{r, echo = FALSE}
 skylineR_vignette@SkylinePath <- '../inst/SkylineRunner.exe'
@@ -154,12 +155,4 @@ skylineR_vignette@peakInfo['PeakArea']
 skylineR_vignette@peakInfo['PeakNoise']
 
 skylineR_vignette@peakInfo['RetentionTime']
-
-
-
-
-
-
-
-
-
+```
