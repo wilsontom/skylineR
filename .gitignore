@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+vignette/temp
+inst/SkylineRunner.exe
+vignette/skylineR-vignette.html
