@@ -13,11 +13,11 @@ setMethod(f = "add_path", signature = "skyline",
             objectName <- as.list(match.call())$object
 
             if(!isTRUE(dir.exists(path))){
-              stop(deparse(substitute(path)), " must be an exisiting directory path", call. = FALSE)
+              warning(deparse(substitute(path)), " must be an exisiting directory path", call. = FALSE)
             }
 
             if(length(list.files(path) != 0)){
-              stop(deparse(substitute(path)), " must be an empty directory", call. = FALSE)
+              warning(deparse(substitute(path)), " must be an empty directory", call. = FALSE)
             }
 
             object@path <- path
