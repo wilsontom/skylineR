@@ -10,7 +10,6 @@
 #' @slot transitions a \code{data.frame} of transition information. The transitions must be identical to those in the \code{SkyTransitionFile.sky}
 #' @slot filepaths a character vector of \code{.raw} filepaths
 #' @slot peakInfo a list of peak picking results
-#' @slot internalStd a \code{data.frame} of peak information for the internal standard (IS) in each sample
 
 setClass(Class = "skyline", slots = c(
   env = "environment",
@@ -20,9 +19,8 @@ setClass(Class = "skyline", slots = c(
   phenoData = "data.frame",
   transitions = "data.frame",
   filepaths = "character",
-  peakInfo = "list",
-  internalStd = "data.frame"
-),
+  peakInfo = "list"
+  ),
   prototype = prototype(
     SkylineTransition = system.file("extdata/skyline.sky", package = "skylineR")
   )
