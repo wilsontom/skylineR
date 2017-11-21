@@ -56,7 +56,7 @@ validate_transitions <- function(x)
 
   transitions <- data.frame(MoleculeGroup = x[,'name'],PrecursorName = x[,'name'],
                             PrecursorRT = x[,'rt'], PrecursorMz = x[,'parent'],
-                            Product = x[,'product'], PrecursorCharge = x[,'charge'],
+                            ProductMz = x[,'product'], PrecursorCharge = x[,'charge'],
                             ProductCharge = x[,'charge'])
 
 
@@ -89,6 +89,7 @@ skyline_runner <- function(x)
 	REPORT_a <- paste0("--report-name=\"Transition Results\" --report-file=",REPORT_NAME, " --report-invariant")
 	ANALYSE_CMD <- paste(SKYLINE,TRANSITIONS,SKYD,IN,REPORT_a, sep = " ")
 
+	message(paste0('...analysing ', x))
 	system(ANALYSE_CMD, intern = FALSE)
 	}
 
