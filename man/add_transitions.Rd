@@ -14,7 +14,7 @@ add_transitions(object, transitions)
 \item{object}{a \code{skyline} object}
 
 \item{transitions}{a \code{data.frame} of transition information. The \code{data.frame} must contain the following columns;
-PrecursorName, PrecursorRT, PrecursorMz, ProductMz,PrecursorCharge and ProductCharge}
+name, rt, parent, product, charge}
 }
 \description{
 add_transitions

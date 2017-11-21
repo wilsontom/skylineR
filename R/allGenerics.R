@@ -35,7 +35,7 @@ setGeneric(name = "add_phenoData",
 #' @rdname add_transitions
 #' @param object a \code{skyline} object
 #' @param transitions a \code{data.frame} of transition information. The \code{data.frame} must contain the following columns;
-#' PrecursorName, PrecursorRT, PrecursorMz, ProductMz,PrecursorCharge and ProductCharge
+#' name, rt, parent, product, charge
 #' @return NULL
 #'
 #' @export
