@@ -3,3 +3,5 @@
 vignette/temp
 inst/SkylineRunner.exe
 vignette/skylineR-vignette.html
+^\.github$
+^codecov\.yml$

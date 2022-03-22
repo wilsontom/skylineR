@@ -1,32 +1,42 @@
 Package: skylineR
 Type: Package
 Title: R wrapper for SRM-MS integration using Skyline
-Version: 0.0.99
-Author: Tom Wilson <tpw2@aber.ac.uk>
-Maintainer: Tom Wilson <tpw2@aber.ac.uk>
+Version: 0.1.0
+Authors@R: c(
+    person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
 Description: skylineR is a R wrapper around the SkylineRunner.exe for integration of selective reaction monitoring (SRM) mass spectrometry (MS) chromatograms.
 License: GPL (>= 3.0)
 Depends:
+    magrittr
+Imports:
+    readr,
+    tidyr,
     methods,
     dplyr,
-	  purrr
-Imports:
-    tidyr
+	purrr,
+	stevedore
 Suggests:
-    testthat,
+    testthat (>= 3.0.0),
     knitr,
-    rmarkdown
+    rmarkdown,
+    covr
+Encoding: UTF-8       
 LazyData: TRUE
 URL: https://github.com/wilsontom/skylineR
 BugReports: https://github.com/wilsontom/skylineR/issues
 Collate:
     'allClasses.R'
     'allGenerics.R'
-    'add_filepaths-method.R'
+    'add_files-method.R'
     'add_path-method.R'
     'add_phenoData-method.R'
     'add_transitions.R'
     'get_peakInfo-method.R'
+    'get_pwiz_container.R'
     'internals.R'
-RoxygenNote: 6.0.1
+    'skyline_docker_runner.R'
+    'zzz.R'
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
 VignetteBuilder: knitr
+StagedInstall: no
