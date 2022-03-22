@@ -54,49 +54,86 @@ validate_transitions <- function(x)
   }
 
 
-  transitions <- data.frame(MoleculeGroup = x[,'name'],PrecursorName = x[,'name'],
-                            PrecursorRT = x[,'rt'], PrecursorMz = x[,'parent'],
-                            ProductMz = x[,'product'], PrecursorCharge = x[,'charge'],
-                            ProductCharge = x[,'charge'])
+  transitions <- tibble::tibble(
+    MoleculeGroup = x$name,
+    PrecursorName = x$name,
+    PrecursorRT = x$rt,
+    PrecursorMz = x$parent,
+    ProductMz = x$product,
+    PrecursorCharge = x$charge,
+    ProductCharge = x$charge
+  )
 
 
-  transitions[,'PrecursorCharge'] <- gsub('\\+',1,transitions[,'PrecursorCharge'] )
-  transitions[,'PrecursorCharge'] <- gsub('\\-',-1,transitions[,'PrecursorCharge'] )
+  transitions$PrecursorCharge <-
+    stringr::str_replace_all(transitions$PrecursorCharge, '\\+', '1')
+  transitions$PrecursorCharge <-
+    stringr::str_replace_all(transitions$PrecursorCharge, '\\-','-1')
 
-  transitions[,'ProductCharge'] <- gsub('\\+', 1,transitions[,'ProductCharge'] )
-  transitions[,'ProductCharge'] <- gsub('\\-', -1,transitions[,'ProductCharge'] )
+  transitions$ProductCharge <-
+    stringr::str_replace_all(transitions$ProductCharge, '\\+', '1')
+  transitions$ProductCharge <-
+    stringr::str_replace_all(transitions$ProductCharge, '\\-','-1')
 
 
   return(transitions)
   }
 
-#' Skyline CommandLine Runner
-#'
-#' @param x a character vector
-#' @return NULL
-#' @keywords internal
-
-skyline_runner <- function(x)
-	{
-	object <- getOption("SkylineObject")
-
-	SKYLINE <- object@SkylinePath
-	SKYD <- paste0("--in=", object@SkylineTransition)
-	TRANSITIONS <- paste0("--import-transition-list=",paste0(object@path,"/transitions_temp.csv"))
-	IN <- paste0("--import-file=", x)
-	nmtp <- paste0(strsplit(basename(x), "\\.")[[1]][1], ".csv")
-	REPORT_NAME <- paste0(object@path, "/",nmtp)
-	REPORT_a <- paste0("--report-name=\"Transition Results\" --report-file=",REPORT_NAME, " --report-invariant")
-	ANALYSE_CMD <- paste(SKYLINE,TRANSITIONS,SKYD,IN,REPORT_a, sep = " ")
-
-	message(paste0('...analysing ', x))
-	system(ANALYSE_CMD, intern = FALSE)
-	}
 
 
 
 
+skyline_docker_runner <- function(object, x)
+{
+
+  filepath <- normalizePath(stringr::str_remove_all(x, basename(x)))
+
+  docker_cmd <- glue::glue(
+    'docker run --rm -e WINDEDEBUG=-all -v ',
+    {
+      normalizePath(object@path)
+    },
+    ':/data -v ',
+    {
+      filepath
+    },
+    ':/files chambm/pwiz-skyline-i-agree-to-the-vendor-licenses wine SkylineCmd'
+  )
+
+  renametmp <-
+    stringr::str_replace(basename(x), '.mzML', '.csv')
 
 
+  xfile <- glue::glue('/files/', {
+    basename(x)
+  })
+
+  skyline_cmd <-
+    glue::glue(
+      '--in=',
+      'skyline.sky --import-transition-list=',
+      'transitions_temp.csv --import-file=',
+      {
+        xfile
+      },
+      ' --report-name=\"Transition Results\" --report-file=',
+      {
+        renametmp
+      },
+      ' --report-invariant'
+    )
 
 
+  full_cmd <- glue::glue({
+    docker_cmd
+  }, ' ', {
+    skyline_cmd
+  })
+
+  system(full_cmd, intern = TRUE)
+
+
+  return(invisible(NULL))
+
+
+}

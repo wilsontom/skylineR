@@ -9,15 +9,19 @@ setMethod("get_peakInfo", signature = "skyline",
           function(object) {
             objectName <- as.list(match.call())$object
 
-            write.csv(
-              object@transitions,
-              file = paste0(object@path, "/", "transitions_temp.csv"),
-              row.names = FALSE
-            )
+            readr::write_csv(object@transitions,
+                             file = paste0(object@path, "/", "transitions_temp.csv"))
 
-            options(SkylineObject = object)
 
-            purrr::map(as.list(object@filepaths), skyline_runner)
+            file.copy(from = system.file('extdata/skyline.sky', package = 'skylineR'),
+                      to = object@path)
+
+
+
+            purrr::map(as.list(object@filepaths), ~ {
+              skyline_docker_runner(object, .)
+            })
+
 
             file.remove(paste0(object@path, "/transitions_temp.csv"))
 

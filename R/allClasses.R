@@ -2,8 +2,6 @@
 #'
 #' An \code{S4} class for performing quantitative analysis of SRM-MS data using \code{skyline}
 #'
-#' @slot env class environment
-#' @slot SkylinePath character of path to \code{SkylineRunner.exe}
 #' @slot SkylineTransition character of path to Skyline transition file (\code{.sky})
 #' @slot path character of path where temporary files are written to
 #' @slot phenoData a runinfo \code{data.frame}
@@ -13,15 +11,15 @@
 #'
 #' @importFrom methods setClass
 
-setClass(Class = "skyline", slots = c(
-  env = "environment",
-  SkylinePath = "character",
-  SkylineTransition = "character",
-  path = "character",
-  phenoData = "data.frame",
-  transitions = "data.frame",
-  filepaths = "character",
-  peakInfo = "list"
+setClass(
+  Class = "skyline",
+  slots = c(
+    SkylineTransition = "character",
+    path = "character",
+    phenoData = "tbl_df",
+    transitions = "tbl_df",
+    filepaths = "character",
+    peakInfo = "list"
   ),
   prototype = prototype(
     SkylineTransition = system.file("extdata/skyline.sky", package = "skylineR")

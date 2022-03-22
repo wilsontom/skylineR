@@ -1,15 +1,15 @@
-#' add_filepaths
+#' add_files
 #'
-#' @rdname add_filepaths
+#' @rdname add_files
 #' @param object a \code{skyline} object
-#' @param filepaths a vector of valid file (`.raw`, `.mzML` or `.mxXML`) locations for analysis
+#' @param files a vector of valid file (`.raw`, `.mzML` or `.mxXML`) locations for analysis
 #' @return NULL
 #'
 #' @export
 
-setGeneric(name = "add_filepaths",
-             def = function(object, filepaths)
-               {standardGeneric("add_filepaths")}
+setGeneric(name = "add_files",
+             def = function(object, files)
+               {standardGeneric("add_files")}
 )
 
 
