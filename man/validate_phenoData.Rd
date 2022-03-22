@@ -7,9 +7,9 @@
 validate_phenoData(x, object)
 }
 \arguments{
-\item{x}{a `data.frame` of `fileName` and `sampleName`}
+\item{x}{a \code{data.frame} of \code{fileName} and \code{sampleName}}
 
-\item{object}{a `skyline` object containing filepaths}
+\item{object}{a \code{skyline} object containing filepaths}
 }
 \description{
 Validate phenoData

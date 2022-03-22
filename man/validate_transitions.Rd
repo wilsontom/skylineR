@@ -7,7 +7,7 @@
 validate_transitions(x)
 }
 \arguments{
-\item{x}{a `data.frame` of Skyline formatted transition data}
+\item{x}{a \code{data.frame} of Skyline formatted transition data}
 }
 \description{
 Validate transitions

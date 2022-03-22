@@ -10,10 +10,6 @@ An \code{S4} class for performing quantitative analysis of SRM-MS data using \co
 \section{Slots}{
 
 \describe{
-\item{\code{env}}{class environment}
-
-\item{\code{SkylinePath}}{character of path to \code{SkylineRunner.exe}}
-
 \item{\code{SkylineTransition}}{character of path to Skyline transition file (\code{.sky})}
 
 \item{\code{path}}{character of path where temporary files are written to}
